@@ -1,7 +1,10 @@
+ 
+ 
  let objecttochage={
-  r:[.367322, .860646, -.227968],
-  g:[0.280085, 0.672501, 0.047413],
-  b:[-.01182, .04294, .968881],
+  valuedue:[0.367322,0.860646,-0.227968,0.280085, 0.672501, 0.047413,-.01182, 0.04294,0.968881],
+  valuetit:[1.255528,-0.076749,-0.178779,-0.078411,0.930809,0.147602,0.004733,0.691367,0.3039],
+  valuepro:[0.152286,1.052583,-0.204868,0.114503,0.786281, 0.099216,-.003882,-0.048116, 1.051998],
+
 
  Deurtranopi:function(rgb){
   let arrempy=[];
@@ -13,25 +16,97 @@
                  
                  }
 
-               alert(arrempy);
-               let  finDeuValR =  (arrempy[0])* (this.r[0]) + (arrempy[1])*(this.r[1])+ (arrempy[2])*(this.r[2]);
-               let  finDeuValG =  (arrempy[0])* (this.g[0]) + (arrempy[1])*(this.g[1])+ (arrempy[2])*(this.g[2]);
-               let  fiproValB =  (arrempy[0])* (this.r[0]) + (arrempy[1])*(this.r[1])+ (arrempy[2])*(this.r[2]);
-               let  mydutronope= [finDeuValR,finDeuValG,fiproValB];
+              //  alert(arrempy);
+        let  finDeuValR =  (arrempy[0])* (this.valuedue[0]) + (arrempy[1])*(this.valuedue[1])+ (arrempy[2])*(this.valuedue[2]);
+        let  finDeuValG =  (arrempy[0])* (this.valuedue[3]) + (arrempy[1])*(this.valuedue[4])+ (arrempy[2])*(this.valuedue[5]);
+        let  finDeuValB =  (arrempy[0])* (this.valuedue[6]) + (arrempy[1])*(this.valuedue[7])+ (arrempy[2])*(this.valuedue[8]);
 
-              //  alert(finDeuValR);
-              //  alert(finDeuValG);
-              //  alert(fiproValB);
-               alert(mydutronope);
+           let  fintetValR = (arrempy[0])* (this.valuetit[0]) + (arrempy[1])*(this.valuetit[1])+ (arrempy[2])*(this.valuetit[2]);
+           let  fintetValG = (arrempy[0])* (this.valuetit[3]) + (arrempy[1])*(this.valuetit[4])+ (arrempy[2])*(this.valuetit[5]);
+           let  fintetValB = (arrempy[0])* (this.valuetit[6]) + (arrempy[1])*(this.valuetit[7])+ (arrempy[2])*(this.valuetit[8]); 
+
+           let  fiproValR = (arrempy[0])* (this.valuepro[0]) + (arrempy[1])*(this.valuepro[1])+ (arrempy[2])*(this.valuepro[2]);
+           let  fiproValG = (arrempy[0])* (this.valuepro[3]) + (arrempy[1])*(this.valuepro[4])+ (arrempy[2])*(this.valuepro[5]);
+           let  fiproValB = (arrempy[0])* (this.valuepro[6]) + (arrempy[1])*(this.valuepro[7])+ (arrempy[2])*(this.valuepro[8]); 
+
+
+
+
+        let  mydutronope= [finDeuValR,finDeuValG,finDeuValB,fintetValR,fintetValG,fintetValB,fiproValR,fiproValG,fiproValB];
+   
+
+        
+              //  alert(mydutronope);
+               let newarray=[];
+              let changevalue= mydutronope;
+ for(let x=0;  x<9; x++){
+  if(changevalue[x]>255){
+    changevalue[x]=255
+
+    newarray.push(changevalue[x]);
+  }
+
+  else{
+   newarray.push(changevalue[x]);
+  }
+ 
+       
+
+ }
+ let rgbvalue = arrempy[0]+","+ arrempy[1]+","+ arrempy[2];
+    let rdh = Math.abs(Math.round(newarray[0]))+","+Math.abs(Math.round(newarray[1]))+","+Math.abs(Math.round(newarray[2]));
+    let rth = Math.abs(Math.round(newarray[3]))+","+Math.abs(Math.round(newarray[4]))+","+Math.abs(Math.round(newarray[5]));
+    let rph = Math.abs(Math.round(newarray[6]))+","+Math.abs(Math.round(newarray[7]))+","+Math.abs(Math.round(newarray[8]));
+    // alert(rth);
+
+
+let colordue = document.getElementById("dueh2");
+let colortit = document.getElementById("tit2");
+let colorpro = document.getElementById("pro2");
+let btnColordue =document.getElementById("valuedue");
+let btnColortit =document.getElementById("valuetit");
+let btnColorpro =document.getElementById("valuepro");
+let colorButton = document.getElementById("colorButton");
+
+
+
+
+      
+            btnColordue.innerText= "Deu("+rdh+")";
+             navigator.clipboard.writeText(colordue.value);
+             colordue.style.backgroundColor="RGB("+rdh+")";
+
+             btnColortit.innerText="Trit("+rth+")";
+             navigator.clipboard.writeText(colortit.value);
+             colortit.style.backgroundColor="RGB("+rth+")";
+
+             btnColorpro .innerText= "pro("+rph+")";
+             navigator.clipboard.writeText(colorpro.value);
+             colorpro.style.backgroundColor="RGB("+rph+")";
+
+             colorButton.style.backgroundColor="RGB("+rgbvalue+")";
+
+
+
+  }
+  
+
+ 
+ }};
+ let colopicker2 = document.getElementById("colorPicker");
+ colopicker2.addEventListener("input", function (event) {
+  // const selectedColor = event.target.value;
+  objecttochage.Deurtranopi(colopicker2.value);
+
+});
 
 
  
-  }
- }};
 
-objecttochage.Deurtranopi('#256575');
+ 
 
-
+  
+// objecttochage.Deurtranopi('#198019');
 
 
 
@@ -120,7 +195,7 @@ let valuearr=[0.367322,0.860646,-.227968,0.280085,0.672501,0.047413,-0.01182,0.0
 0.152286, 1.052583, -.204868, 0.114503, 0.786281, 0.099216,-.003882, -.048116, 1.051998
 ];
 
-
+                           
 let  finDeuValR =  (inVersArr[0])* (valuearr[0]) + (inVersArr[1])*(valuearr[1])+ (inVersArr[2])*(valuearr[2]);
 let   finDeuValG =  (inVersArr[0])* (valuearr[3]) + (inVersArr[1])*(valuearr[4])+ (inVersArr[2])*(valuearr[5]);
 let   finDeuValB =  (inVersArr[0])* (valuearr[6])+ (inVersArr[1])*(valuearr[7])+ (inVersArr[2])*(valuearr[8]);
@@ -197,96 +272,96 @@ colorButton.addEventListener('click', () => {
   colorPicker.click();
 });
 
-let colopicker = document.getElementById("colorPicker").addEventListener("input",(event)=>{
+// let colopicker = document.getElementById("colorPicker").addEventListener("input",(event)=>{
 
-  let hexCode= colorPicker.value;
+//   let hexCode= colorPicker.value;
 
-  let rgbArr=[];
+//   let rgbArr=[];
 
     
 
-      if(/^#?[A-Fa-f0-p]{6}$/.test(hexCode)){
+//       if(/^#?[A-Fa-f0-p]{6}$/.test(hexCode)){
                   
-                   hexCode = hexCode.split("#")[1] || hexCode;
-                   for(let i= 0; i<hexCode.length; i+=2){
+//                    hexCode = hexCode.split("#")[1] || hexCode;
+//                    for(let i= 0; i<hexCode.length; i+=2){
           
-                  rgbArr.push(parseInt(hexCode[i] + hexCode[i+1], 16));
+//                   rgbArr.push(parseInt(hexCode[i] + hexCode[i+1], 16));
           
           
                   
-               }
-              }
+//                }
+//               }
            
               
-              let valuearr=[0.367322,0.860646,-.227968,0.280085,0.672501,0.047413,-0.01182,0.04294,0.968881,
-              1.255528,-0.076749,-0.178779,-0.078411,0.930809,0.147602,0.004733,0.691367,0.3039,
-              0.152286, 1.052583, -.204868, 0.114503, 0.786281, 0.099216,-.003882, -.048116, 1.051998
-             ];
+//               let valuearr=[0.367322,0.860646,-.227968,0.280085,0.672501,0.047413,-0.01182,0.04294,0.968881,
+//               1.255528,-0.076749,-0.178779,-0.078411,0.930809,0.147602,0.004733,0.691367,0.3039,
+//               0.152286, 1.052583, -.204868, 0.114503, 0.786281, 0.099216,-.003882, -.048116, 1.051998
+//              ];
 
 
-            let  finDeuValR =  (rgbArr[0])* (valuearr[0]) + (rgbArr[1])*(valuearr[1])+ (rgbArr[2])*(valuearr[2]);
-            let   finDeuValG =  (rgbArr[0])* (valuearr[3]) + (rgbArr[1])*(valuearr[4])+ (rgbArr[2])*(valuearr[5]);
-            let   finDeuValB =  (rgbArr[0])* (valuearr[6])+ (rgbArr[1])*(valuearr[7])+ (rgbArr[2])*(valuearr[8]);
+//             let  finDeuValR =  (rgbArr[0])* (valuearr[0]) + (rgbArr[1])*(valuearr[1])+ (rgbArr[2])*(valuearr[2]);
+//             let   finDeuValG =  (rgbArr[0])* (valuearr[3]) + (rgbArr[1])*(valuearr[4])+ (rgbArr[2])*(valuearr[5]);
+//             let   finDeuValB =  (rgbArr[0])* (valuearr[6])+ (rgbArr[1])*(valuearr[7])+ (rgbArr[2])*(valuearr[8]);
         
-            let   fintetValR =  rgbArr[0]* valuearr[9]     + rgbArr[1]*valuearr[10]+ rgbArr[2]*valuearr[11];
-            let  fintetValG =  rgbArr[0]* valuearr[12]    + rgbArr[1]*valuearr[13]+rgbArr[2]*valuearr[14];
-            let  fintetValB =  rgbArr[0]* valuearr[15]    + rgbArr[1]*valuearr[16]+rgbArr[2]*valuearr[17];
+//             let   fintetValR =  rgbArr[0]* valuearr[9]     + rgbArr[1]*valuearr[10]+ rgbArr[2]*valuearr[11];
+//             let  fintetValG =  rgbArr[0]* valuearr[12]    + rgbArr[1]*valuearr[13]+rgbArr[2]*valuearr[14];
+//             let  fintetValB =  rgbArr[0]* valuearr[15]    + rgbArr[1]*valuearr[16]+rgbArr[2]*valuearr[17];
         
-            let fiproValR =  rgbArr[0]* valuearr[18] + rgbArr[1]*valuearr[19]+ rgbArr[2]*valuearr[20];
-            let fiproValG =  rgbArr[0]* valuearr[21] + rgbArr[1]*valuearr[22]+rgbArr[2]*valuearr[23];
-            let fiproValB =  rgbArr[0]* valuearr[24] + rgbArr[1]*valuearr[25]+rgbArr[2]*valuearr[26];
+//             let fiproValR =  rgbArr[0]* valuearr[18] + rgbArr[1]*valuearr[19]+ rgbArr[2]*valuearr[20];
+//             let fiproValG =  rgbArr[0]* valuearr[21] + rgbArr[1]*valuearr[22]+rgbArr[2]*valuearr[23];
+//             let fiproValB =  rgbArr[0]* valuearr[24] + rgbArr[1]*valuearr[25]+rgbArr[2]*valuearr[26];
                
-                let newarray=[];
-                let changevalue=[finDeuValR,finDeuValG,finDeuValB,fintetValR,fintetValG,fintetValB,fiproValR,fiproValG,fiproValB];
-                for(let x=0;  x<9; x++){
-                 if(changevalue[x]>255){
-                   changevalue[x]=255
+//                 let newarray=[];
+//                 let changevalue=[finDeuValR,finDeuValG,finDeuValB,fintetValR,fintetValG,fintetValB,fiproValR,fiproValG,fiproValB];
+//                 for(let x=0;  x<9; x++){
+//                  if(changevalue[x]>255){
+//                    changevalue[x]=255
         
-                   newarray.push(changevalue[x]);
-                 }
-                 else{
-                  newarray.push(changevalue[x]);
-                 }
+//                    newarray.push(changevalue[x]);
+//                  }
+//                  else{
+//                   newarray.push(changevalue[x]);
+//                  }
                 
                       
-                }
+//                 }
              
 
-             let rgbvalue =rgbArr[0]+","+rgbArr[1]+","+rgbArr[2];
-             let rdh = Math.abs(Math.round(newarray[0]))+","+Math.abs(Math.round(newarray[1]))+","+Math.abs(Math.round(newarray[2]));
-             let rth = Math.abs(Math.round(newarray[3]))+","+Math.abs(Math.round(newarray[4]))+","+Math.abs(Math.round(newarray[5]));
-             let rph = Math.abs(Math.round(newarray[6]))+","+Math.abs(Math.round(newarray[7]))+","+Math.abs(Math.round(newarray[8]));
+//              let rgbvalue =rgbArr[0]+","+rgbArr[1]+","+rgbArr[2];
+//              let rdh = Math.abs(Math.round(newarray[0]))+","+Math.abs(Math.round(newarray[1]))+","+Math.abs(Math.round(newarray[2]));
+//              let rth = Math.abs(Math.round(newarray[3]))+","+Math.abs(Math.round(newarray[4]))+","+Math.abs(Math.round(newarray[5]));
+//              let rph = Math.abs(Math.round(newarray[6]))+","+Math.abs(Math.round(newarray[7]))+","+Math.abs(Math.round(newarray[8]));
 
-            let colordue = document.getElementById("dueh2");
-            let colortit = document.getElementById("tit2");
-            let colorpro = document.getElementById("pro2");
+//             let colordue = document.getElementById("dueh2");
+//             let colortit = document.getElementById("tit2");
+//             let colorpro = document.getElementById("pro2");
 
-            let btnColordue =document.getElementById("valuedue");
-            let btnColortit =document.getElementById("valuetit");
-            let btnColorpro =document.getElementById("valuepro");
+//             let btnColordue =document.getElementById("valuedue");
+//             let btnColortit =document.getElementById("valuetit");
+//             let btnColorpro =document.getElementById("valuepro");
            
            
 
-            // btnColordue.innerText= "RGB("+rgbArr+")"+colorPicker.value+","+"Deutéranopie("+rdh+")";
-            btnColordue.innerText= "Deu("+rdh+")";
-             navigator.clipboard.writeText(colordue.value);
-             colordue.style.backgroundColor="RGB("+rdh+")";
+//             // btnColordue.innerText= "RGB("+rgbArr+")"+colorPicker.value+","+"Deutéranopie("+rdh+")";
+//             btnColordue.innerText= "Deu("+rdh+")";
+//              navigator.clipboard.writeText(colordue.value);
+//              colordue.style.backgroundColor="RGB("+rdh+")";
 
 
-            //  btnColortit.innerText= "RGB("+rgbArr+")" +" "+"H"+colorPicker.value+"Tritanopie("+rth+")";
-             btnColortit.innerText="Trit("+rth+")";
-             navigator.clipboard.writeText(colortit.value);
-             colortit.style.backgroundColor="RGB("+rth+")";
+//             //  btnColortit.innerText= "RGB("+rgbArr+")" +" "+"H"+colorPicker.value+"Tritanopie("+rth+")";
+//              btnColortit.innerText="Trit("+rth+")";
+//              navigator.clipboard.writeText(colortit.value);
+//              colortit.style.backgroundColor="RGB("+rth+")";
 
-            //  btnColorpro .innerText= "RGB("+rgbArr+")"+" "+"H"+colorPicker.value+"protanopie("+rph+")";
-             btnColorpro .innerText= "pro("+rph+")";
-             navigator.clipboard.writeText(colorpro.value);
-             colorpro.style.backgroundColor="RGB("+rph+")";
+//             //  btnColorpro .innerText= "RGB("+rgbArr+")"+" "+"H"+colorPicker.value+"protanopie("+rph+")";
+//              btnColorpro .innerText= "pro("+rph+")";
+//              navigator.clipboard.writeText(colorpro.value);
+//              colorpro.style.backgroundColor="RGB("+rph+")";
 
-             colorButton.style.backgroundColor="RGB("+rgbvalue+")";
+//              colorButton.style.backgroundColor="RGB("+rgbvalue+")";
 
           
-      });
+//       });
   
 
 
