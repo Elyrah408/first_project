@@ -1,0 +1,256 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(../img/backgroundphoto.jpg);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.logo{
+border-radius: 50%;
+height: 30px;
+width: 30px;
+
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%; 
+    align-content: center;
+    justify-content: space-between;
+
+
+}
+
+nav img{
+ width: 100px;
+}
+
+.nav_links{
+
+    text-align: right;
+    flex: 1;
+}
+
+.nav_links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+
+}
+
+.nav_links ul li a{
+text-decoration: none;
+font-size: 15px;
+color: rgb(0, 0, 0);
+font-weight: 500;
+
+}
+
+.nav_links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    display: block;
+    background-color: brown;
+    margin: auto;
+    transition: 0.5s;
+
+}
+
+.nav_links ul li:hover::after{
+    width: 100%;
+
+}
+
+.secConten{
+    width: 30%;
+    height: 30vh;
+    color: rgb(146, 28, 28);
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color:transparent;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    
+}
+
+
+.secConten h2{
+    font-size: 30px;
+    margin-top: 10px;
+    color: aliceblue;
+
+}
+ form{
+
+    margin-top: 25px;
+    display: block;
+    
+ }
+
+input{
+    text-align: center;
+    align-content: center;
+    height: 4vh;
+    width: 50%;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    display: table-cell;
+    margin-bottom: 10px;
+   
+}
+
+input:hover{
+border-color: blue;
+
+}
+
+.send{
+    height: 4vh;
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: rgb(131, 30, 30);
+    border-radius: 10px;
+    font-weight:500;
+
+}
+
+
+
+
+
+
+
+
+.home_btn{
+ border: 1px solid rgb(15, 15, 15);
+ position: relative;
+ padding: 15px 40px;
+ background-color: transparent;
+ display: inline-block;
+ text-decoration: none;
+ cursor: pointer;
+ border-radius: 5px;
+
+}
+
+.home_btn:hover{
+    border: 1px solid brown;
+    background-color: brown;
+    color: white;
+    transition: 2s;
+}
+
+nav .fa{
+    display: none;
+}
+
+
+
+@media(max-width:700px){
+
+    .secConten h1{
+        font-size: 20px;
+        
+    
+    }
+
+
+    .home_btn{
+        border: 1px solid rgb(20, 6, 6);
+        position: relative;
+        padding: 10px 20px;
+        background-color: transparent;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 5px;
+       
+       }
+
+       .nav_links ul li{
+        display: block;
+       }
+
+
+       .nav_links{
+        position: absolute;
+        background-color: rgba(7, 8, 64, 0.927);
+        height: 100%;
+        width: 200px;
+        right: -200px;
+        top: 0;
+        text-align: left;
+        z-index: 2;
+        transition: 2s;
+       }
+
+       nav .fa{
+        display: block;
+        font-size: 22px;
+        color: rgb(12, 11, 11);
+        cursor: pointer;
+        margin: 10px;
+       }
+    
+        .nav_links ul {
+            padding: 30px;
+        }
+
+        .nav_links ul{
+            background-color: rgba(7, 8, 64, 0.927);
+      
+        }
+
+        .nav_links ul li a{
+            text-decoration: none;
+            font-size: 15px;
+            color: rgb(226, 221, 221);
+            font-weight: 400;
+            
+            }
+}
+
+
+.section2{
+    padding: 60px;
+    text-align: center;
+    margin: auto;
+}
+
+.section2 h1{
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+@media(max-width:700px) {
+
+    .row{
+     flex-direction: column;
+
+    }
+
+    
+}
+
+
