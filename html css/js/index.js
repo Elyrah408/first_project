@@ -10,3 +10,5 @@ function hidemenue(){
 function showmenue(){
     navlinks.style.right="0";
 }
+
+

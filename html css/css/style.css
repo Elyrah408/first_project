@@ -240,13 +240,15 @@ show some 4 cards for the new product
 
 .section3 h3{
     color: black;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .cardsproduct{
 
     border-radius: 10px;
     flex-basis: 20%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     position: relative;
     box-sizing: border-box;
     margin-top: 20px;
@@ -284,7 +286,7 @@ show some 4 cards for the new product
 
 }
 
-.layer h4{
+.layer h4 {
  width: 100%;
  position: absolute;
  color: white;
@@ -293,12 +295,62 @@ show some 4 cards for the new product
  transform: translateX(-50%);
  left: 50%;
  bottom: 0;
- transition: 1s;
+ transition: 2s;
 
 }
 
-.layer h4:hover{
+.layer:hover h4{
     bottom: 49%;
     opacity: 1;
  
+}
+
+
+/* --section4 for the carosel-- */
+
+.sectionvdeo{
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 50px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+
+
+}
+
+.sectionvdeo video{
+    height: 30vh;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+} 
+
+
+
+.footersec{
+    width: 100%;
+    text-align: center;
+    padding: 20px 5px;
+
+}
+.footersec {
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+
+}
+
+.footersec p{
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+    margin: 10px 10px;
+
+}
+
+.socialicon .fa-brands{
+    margin-left: 10px;
+    color: brown;
+
 }
